@@ -1,6 +1,7 @@
 package com.example.finalprojekt.entity;
 
-import javax.persistence.Entity;
+import com.example.finalprojekt.enums.PersonType;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.example.finalprojekt.entity;
+package com.example.finalprojekt.enums;
 
 public enum ReservationStatus {
     IN_PROGRESS, CANCELED, EXECUTED, WAITING_FOR_REALISATION

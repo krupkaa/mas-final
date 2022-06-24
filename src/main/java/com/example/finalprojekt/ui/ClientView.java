@@ -18,8 +18,11 @@ public class ClientView extends HorizontalLayout {
         });
 
 
-        add(new Button("Wypożycz samochód"));
-        add(new Button("Oddaj samochód"));
+        Button giveBackCars = new Button("Wypożycz/Oddaj samochód");
+        add(giveBackCars);
+        giveBackCars.addClickListener(clickEvent -> {
+            UI.getCurrent().navigate("carDetail");
+        });
         add(new Button("Wystaw opinie"));
 
 

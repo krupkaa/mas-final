@@ -1,7 +1,8 @@
 package com.example.finalprojekt.entity;
 
+import com.example.finalprojekt.enums.PersonType;
+
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 
 

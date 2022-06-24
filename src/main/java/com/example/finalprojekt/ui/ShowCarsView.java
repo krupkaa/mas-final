@@ -20,8 +20,7 @@ public class ShowCarsView extends VerticalLayout {
 
     public ShowCarsView() {
        Button buttonReadFile = new Button("Wyświetl wszystkie samochody",  e -> readFromClasspath());
-       Button buttonSorted = new Button("Posortuj samochody ");
-       add(buttonReadFile, buttonSorted, grid);
+       add(buttonReadFile, grid);
     }
 
     private void readFromClasspath() {

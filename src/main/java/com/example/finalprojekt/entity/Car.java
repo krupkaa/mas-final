@@ -1,5 +1,7 @@
 package com.example.finalprojekt.entity;
 
+import com.example.finalprojekt.enums.CarStatus;
+
 import java.time.LocalDate;
 
 public class Car {
