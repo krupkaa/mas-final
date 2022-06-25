@@ -6,7 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 
 
-public class Person {
+public abstract class Person {
 
     @Id
     @Column(name = "id", nullable = false)
@@ -27,7 +27,7 @@ public class Person {
      * @param contact
      * @param personType
      */
-    public Person( String name, String secondName, String surname, Contact contact, PersonType personType) {
+    public Person(String name, String secondName, String surname, Contact contact, PersonType personType) {
         setName(name);
         setSecondName(secondName);
         setSurname(surname);
@@ -42,6 +42,7 @@ public class Person {
      * @param s
      * @param name
      * @param surname
+     * @param contact
      * @param personType
      */
     public Person(Long id, String s, String name, String surname, Contact contact, PersonType personType) {

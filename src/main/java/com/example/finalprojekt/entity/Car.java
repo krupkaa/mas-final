@@ -3,6 +3,8 @@ package com.example.finalprojekt.entity;
 import com.example.finalprojekt.enums.CarStatus;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Car {
 
@@ -13,7 +15,9 @@ public class Car {
     private double priceRentForDay;
     private CarStatus carStatus;
     private int mileage;
-//    private LocalDate yearProduction;
+
+
+    public static List<Car> ALL_CARS_LIST = new ArrayList<>();
 
     public Car(String brand, String model, String registrationNumber, int seats, double priceRentForDay, CarStatus carStatus, int mileage) {
         setBrand(brand);
@@ -23,7 +27,7 @@ public class Car {
         setPriceRentForDay(priceRentForDay);
         setCarStatus(carStatus);
         setMileage(mileage);
- //       setYearProduction(yearProduction);
+
     }
 
     public String getBrand() {
@@ -82,13 +86,6 @@ public class Car {
         this.mileage = mileage;
     }
 
-//    public LocalDate getYearProduction() {
-//        return yearProduction;
-//    }
-//
-//    public void setYearProduction(LocalDate yearProduction) {
-//        this.yearProduction = yearProduction;
-//    }
 
 
     @Override

@@ -13,8 +13,6 @@ import java.util.Map;
 public class Employee extends Person {
 
     private int employeeId;
-    private LocalDate dateOfBirth;
-    private int age;
     private LocalDate dateOfEmployment;
     private int jobSeniority;
     private List<String> previousWorkplaceList = new ArrayList<>();
@@ -23,26 +21,35 @@ public class Employee extends Person {
 
     private static Map<Integer, Employee> EMPLOYEESMAP = new HashMap<>();
 
+    public Employee(String name, String secondName, String surname, Contact contact, PersonType personType) {
+        super(name, secondName, surname, contact, personType);
+    }
 
-
-
-    public Employee(Long id, String name, String secondName, String surname, Contact contact, PersonType personType,
-                    int employeeId, LocalDate dateOfBirth, LocalDate dateOfEmployment, List<String> previousWorkplaceList) {
-        super(id, name, secondName, surname, contact, personType);
-        setEmployeeId(employeeId);
-        setDateOfBirth(dateOfBirth);
-        setAge(age);
-        setDateOfEmployment(dateOfEmployment);
-        setJobSeniority(jobSeniority);
-        setPreviousWorkplaceList(previousWorkplaceList);
+    public Employee(Long id, String s, String name, String surname, Contact contact, PersonType personType) {
+        super(id, s, name, surname, contact, personType);
     }
 
 
+//    public Employee(String secondName, String name,String surname, Contact contact, PersonType personType,
+//                    int employeeId, LocalDate dateOfEmployment, List<String> previousWorkplaceList) {
+//        super(name, secondName, surname, contact, personType);
+//        setEmployeeId(employeeId);
+//        setDateOfEmployment(dateOfEmployment);
+//        setJobSeniority(jobSeniority);
+//        setPreviousWorkplaceList(previousWorkplaceList);
+//    }
 
-    //TODO: cos z tym wyliczaniem wieku
-    public int getAge() {
-        return age = LocalDate.now().getYear() - dateOfBirth.getYear();
-    }
+//    public Employee(String name, String surname, Contact contact, PersonType personType,
+//                    int employeeId, LocalDate dateOfEmployment, List<String> previousWorkplaceList) {
+//        super(name, surname, contact, personType);
+//        setEmployeeId(employeeId);
+//        setDateOfEmployment(dateOfEmployment);
+//        setJobSeniority(jobSeniority);
+//        setPreviousWorkplaceList(previousWorkplaceList);
+//    }
+
+
+
 
     public int getJobSeniority() {
         return jobSeniority = LocalDate.now().getMonthValue() - dateOfEmployment.getMonthValue();
@@ -63,17 +70,6 @@ public class Employee extends Person {
         return employeeId;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
-
-    public void setDateOfBirth(LocalDate dateOfBirth) {
-        this.dateOfBirth = dateOfBirth;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
 
     public LocalDate getDateOfEmployment() {
         return dateOfEmployment;

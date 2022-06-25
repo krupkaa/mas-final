@@ -10,16 +10,17 @@ public class OwnerView extends HorizontalLayout {
 
     public OwnerView() {
 
-
-            Button showCars = new Button("Wyświetl samochody");
-            add(showCars);
-            showCars.addClickListener(clickEvent -> {
-                UI.getCurrent().navigate("showCars");
+            Button manageCars = new Button("Zarządzaj samochodami");
+            add(manageCars);
+            manageCars.addClickListener(clickEvent -> {
+                UI.getCurrent().navigate("manageCars");
             });
 
-
-            add(new Button("Zarządzaj samochodami"));
-            add(new Button("Zarządzaj pracownikami"));
+        Button manageEmployees = new Button("Zarządzaj pracownikami");
+        add(manageEmployees);
+        manageEmployees.addClickListener(clickEvent -> {
+            UI.getCurrent().navigate("manageEmployees");
+        });
 
     }
 }
