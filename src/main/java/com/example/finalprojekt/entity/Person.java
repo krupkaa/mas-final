@@ -21,40 +21,36 @@ public class Person {
 
     /**
      * konstruktor na wszystkie parametry
-     * @param id
      * @param name
      * @param secondName
      * @param surname
      * @param contact
      * @param personType
      */
-    public Person(Long id, String name, String secondName, String surname, Contact contact, PersonType personType) {
-        this.name = name;
-        this.secondName = secondName;
-        this.surname = surname;
-        this.contact = contact;
-        this.personType = personType;
+    public Person( String name, String secondName, String surname, Contact contact, PersonType personType) {
+        setName(name);
+        setSecondName(secondName);
+        setSurname(surname);
+        setContact(contact);
+        setPersonType(personType);
     }
 
 
     /**
      * konstruktor pomijajacy atrybut opcjonalny - drugie imie
      * @param id
+     * @param s
      * @param name
      * @param surname
      * @param personType
      */
-    public Person(Long id, String name, String surname, Contact contact, PersonType personType) {
-        this.id = id;
-        this.name = name;
-        this.surname = surname;
-        this.contact = contact;
-        this.personType = personType;
+    public Person(Long id, String s, String name, String surname, Contact contact, PersonType personType) {
+        setName(name);
+        setSurname(surname);
+        setContact(contact);
+        setPersonType(personType);
     }
 
-    public Person() {
-
-    }
 
 
     public String getName() {
@@ -103,13 +99,6 @@ public class Person {
         this.personType = personType;
     }
 
-//    public Long getId() {
-//        return id;
-//    }
-//
-//    public void setId(Long id) {
-//        this.id = id;
-//    }
 
     @Override
     public String toString() {

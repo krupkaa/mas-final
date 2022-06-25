@@ -13,17 +13,17 @@ public class Car {
     private double priceRentForDay;
     private CarStatus carStatus;
     private int mileage;
-    private LocalDate yearProduction;
+//    private LocalDate yearProduction;
 
-    public Car(String brand, String model, String registrationNumber, int seats, double priceRentForDay, CarStatus carStatus, int mileage, LocalDate yearProduction) {
-        this.brand = brand;
-        this.model = model;
-        this.registrationNumber = registrationNumber;
-        this.seats = seats;
-        this.priceRentForDay = priceRentForDay;
-        this.carStatus = carStatus;
-        this.mileage = mileage;
-        this.yearProduction = yearProduction;
+    public Car(String brand, String model, String registrationNumber, int seats, double priceRentForDay, CarStatus carStatus, int mileage) {
+        setBrand(brand);
+        setModel(model);
+        setRegistrationNumber(registrationNumber);
+        setSeats(seats);
+        setPriceRentForDay(priceRentForDay);
+        setCarStatus(carStatus);
+        setMileage(mileage);
+ //       setYearProduction(yearProduction);
     }
 
     public String getBrand() {
@@ -82,11 +82,25 @@ public class Car {
         this.mileage = mileage;
     }
 
-    public LocalDate getYearProduction() {
-        return yearProduction;
-    }
+//    public LocalDate getYearProduction() {
+//        return yearProduction;
+//    }
+//
+//    public void setYearProduction(LocalDate yearProduction) {
+//        this.yearProduction = yearProduction;
+//    }
 
-    public void setYearProduction(LocalDate yearProduction) {
-        this.yearProduction = yearProduction;
+
+    @Override
+    public String toString() {
+        return
+                brand + ';' +
+                model + ';' +
+                registrationNumber + ';' +
+                seats + ';' +
+                priceRentForDay + ';' +
+                carStatus + ';' +
+                mileage;
+
     }
 }

@@ -11,7 +11,7 @@ public class Contact implements Serializable {
     private List<String> emailAddressesList = new ArrayList<>();
 
     public Contact(String phoneNumber, String... emailAddress) {
-        this.phoneNumber = phoneNumber;
+        setPhoneNumber(phoneNumber);
         emailAddressesList.addAll(Arrays.asList(emailAddress));
     }
 
@@ -25,4 +25,19 @@ public class Contact implements Serializable {
         return "phone number: " + phoneNumber;
     }
 
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public List<String> getEmailAddressesList() {
+        return emailAddressesList;
+    }
+
+    public void setEmailAddressesList(List<String> emailAddressesList) {
+        this.emailAddressesList = emailAddressesList;
+    }
 }

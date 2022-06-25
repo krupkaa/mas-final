@@ -24,13 +24,39 @@ public class Client extends Person {
     public Client(Long id, String name, String secondName, String surname, Contact contact,
                   PersonType personType, double currentDeposit, String... drivingLicenseCategory) {
         super(id, name, secondName, surname, contact, personType);
-        this.currentDeposit = currentDeposit;
+        setCurrentDeposit(currentDeposit);
         drivingLicenseCategoryList.addAll(Arrays.asList(drivingLicenseCategory));
     }
 
-
-
     public Opinion getIssuedOpinion() {
         return issuedOpinion;
+    }
+
+    public List<String> getDrivingLicenseCategoryList() {
+        return drivingLicenseCategoryList;
+    }
+
+    public void setDrivingLicenseCategoryList(List<String> drivingLicenseCategoryList) {
+        this.drivingLicenseCategoryList = drivingLicenseCategoryList;
+    }
+
+    public double getCurrentDeposit() {
+        return currentDeposit;
+    }
+
+    public void setCurrentDeposit(double currentDeposit) {
+        this.currentDeposit = currentDeposit;
+    }
+
+    public List<Reservation> getReservationList() {
+        return reservationList;
+    }
+
+    public void setReservationList(List<Reservation> reservationList) {
+        this.reservationList = reservationList;
+    }
+
+    public void setIssuedOpinion(Opinion issuedOpinion) {
+        this.issuedOpinion = issuedOpinion;
     }
 }
