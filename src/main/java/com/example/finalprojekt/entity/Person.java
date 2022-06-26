@@ -2,25 +2,19 @@ package com.example.finalprojekt.entity;
 
 import com.example.finalprojekt.enums.PersonType;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-
-
+//KLASA ABSTAKCYJNA
 public abstract class Person {
 
-    @Id
-    @Column(name = "id", nullable = false)
-    private Long id;
 
     private String name;
-    private String secondName; //TODO: opcjonalny
+    private String secondName;
     private String surname;
-    private Contact contact; //TODO: złożony
+    private Contact contact;
     private PersonType personType;
 
 
     /**
-     * konstruktor na wszystkie parametry
+     * constructor with all parameters
      * @param name
      * @param secondName
      * @param surname
@@ -36,16 +30,15 @@ public abstract class Person {
     }
 
 
+    //ATRYBUT OPCJONALNY
     /**
-     * konstruktor pomijajacy atrybut opcjonalny - drugie imie
-     * @param id
-     * @param s
+     * constructor skip attribute second name which is optional
      * @param name
      * @param surname
      * @param contact
      * @param personType
      */
-    public Person(Long id, String s, String name, String surname, Contact contact, PersonType personType) {
+    public Person(String name, String surname, Contact contact, PersonType personType) {
         setName(name);
         setSurname(surname);
         setContact(contact);
@@ -53,11 +46,16 @@ public abstract class Person {
     }
 
 
-
+    /**
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * @param name
+     */
     public void setName(String name) {
         if(name != null) {
             this.name = name;
@@ -65,18 +63,30 @@ public abstract class Person {
         throw new NullPointerException("Name is required!");
     }
 
+    /**
+     * @return secondName
+     */
     public String getSecondName() {
         return secondName;
     }
 
+    /**
+     * @param secondName
+     */
     public void setSecondName(String secondName) {
         this.secondName = secondName;
     }
 
+    /**
+     * @return surname
+     */
     public String getSurname() {
         return surname;
     }
 
+    /**
+     * @param surname which is required
+     */
     public void setSurname(String surname) {
         if(surname != null) {
             this.surname = surname;
@@ -84,33 +94,34 @@ public abstract class Person {
         throw new NullPointerException("Surname is required!");
     }
 
+    /**
+     * @return contact
+     */
     public Contact getContact() {
         return contact;
     }
 
+    /**
+     * @param contact
+     */
     public void setContact(Contact contact) {
         this.contact = contact;
     }
 
+    /**
+     * @return personType
+     */
     public PersonType getPersonType() {
         return personType;
     }
 
+    /**
+     * @param personType
+     */
     public void setPersonType(PersonType personType) {
         this.personType = personType;
     }
 
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", secondName='" + secondName + '\'' +
-                ", surname='" + surname + '\'' +
-                ", contact=" + contact +
-                ", personType=" + personType +
-                '}';
-    }
 }
 

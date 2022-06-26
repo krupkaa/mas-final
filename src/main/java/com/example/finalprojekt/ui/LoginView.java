@@ -1,5 +1,6 @@
 package com.example.finalprojekt.ui;
 
+import com.example.finalprojekt.entity.Client;
 import com.vaadin.flow.component.Composite;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.login.LoginOverlay;
@@ -8,6 +9,8 @@ import com.vaadin.flow.router.Route;
 
 @Route()
 public class LoginView extends Composite<LoginOverlay> {
+
+    Client client;
 
     public LoginView() {
         LoginOverlay loginOverlay = getContent();
@@ -19,6 +22,7 @@ public class LoginView extends Composite<LoginOverlay> {
         loginOverlay.addLoginListener(event -> {
             if ("klient".equals(event.getUsername()) && "klient".equals(event.getPassword())) {
                 UI.getCurrent().navigate("clientView");
+
             } else if ("pracownik".equals(event.getUsername()) && "pracownik".equals(event.getPassword())) {
                 UI.getCurrent().navigate("employeeView");
             } else if ("właściciel".equals(event.getUsername()) && "właściciel".equals(event.getPassword())) {

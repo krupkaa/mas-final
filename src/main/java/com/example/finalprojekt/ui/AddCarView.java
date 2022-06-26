@@ -14,7 +14,6 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
 
 
-
 @Route("addCar")
 public class AddCarView extends VerticalLayout {
 
@@ -25,10 +24,7 @@ public class AddCarView extends VerticalLayout {
     IntegerField priceForDayRent = new IntegerField("Cena za dzień wynajmu");
     ComboBox<CarStatus> carStatus = new ComboBox<>("Status");
     IntegerField mileage = new IntegerField("Przebieg");
-    //  TextField yearProduction = new TextField("Rok produkcji");
-    Car car;
 
-    ShowCarsView scv = new ShowCarsView();
 
     Button addCarButton = new Button("Dodaj samochód");
 
@@ -45,7 +41,6 @@ public class AddCarView extends VerticalLayout {
 
         addCarButton.setThemeName("primary");
 
-
         binder.bindInstanceFields(this);
         add(brand, model, registrationNumber, seats, priceForDayRent, carStatus, mileage, addCarButton);
         carStatus.setItems(CarStatus.values());
@@ -58,14 +53,10 @@ public class AddCarView extends VerticalLayout {
             System.out.println(addedCar);
             System.out.println(Car.ALL_CARS_LIST);
             fo.addCarsToFile(Car.ALL_CARS_LIST);
-            scv.readFromClasspath();
             Notification.show("Samochód został dodany!");
-
         });
 
-
     }
-
 }
 
 

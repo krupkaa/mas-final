@@ -1,30 +1,32 @@
 package com.example.finalprojekt.entity;
 
-import javax.persistence.*;
-
+import java.util.ArrayList;
+import java.util.List;
 
 public class Opinion {
 
-    @Id
-    @Column(name = "id", nullable = false)
-    private Long id;
 
     private String content;
-
-    @ManyToOne
-    @JoinColumn(name = "client_id")
     private Client client;
+    private List<Client> clientList = new ArrayList<>();
+
+    //ASOCJACJA ZWYKŁA
+    public void addClient(Client client) {
+        if(!this.clientList.contains(client)) {
+            this.clientList.add(client);
+            client.setOpinion(this);
+        }
+    }
+
+
+
 
     public Client getClient() {
         return client;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public String getContent() {
@@ -33,5 +35,11 @@ public class Opinion {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    @Override
+    public String toString() {
+        return  content + ";" +
+                client;
     }
 }
