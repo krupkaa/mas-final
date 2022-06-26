@@ -24,6 +24,7 @@ public class Car {
 
     private EnumSet<EngineType> carTypeEnumSet;
 
+    //ORDERED
     public void addRepair(Repair carRepair) {
         if(!repairsHistory.contains(carRepair)) {
             repairsHistory.add(carRepair);

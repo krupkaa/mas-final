@@ -1,7 +1,5 @@
 package com.example.finalprojekt.entity;
 
-import com.example.finalprojekt.enums.PersonType;
-
 //KLASA ABSTAKCYJNA
 public abstract class Person {
 
@@ -10,39 +8,37 @@ public abstract class Person {
     private String secondName;
     private String surname;
     private Contact contact;
-    private PersonType personType;
 
 
     /**
      * constructor with all parameters
+     *
      * @param name
      * @param secondName
      * @param surname
      * @param contact
-     * @param personType
      */
-    public Person(String name, String secondName, String surname, Contact contact, PersonType personType) {
+    public Person(String name, String secondName, String surname, Contact contact) {
         setName(name);
         setSecondName(secondName);
         setSurname(surname);
         setContact(contact);
-        setPersonType(personType);
     }
 
 
     //ATRYBUT OPCJONALNY
+
     /**
      * constructor skip attribute second name which is optional
+     *
      * @param name
      * @param surname
      * @param contact
-     * @param personType
      */
-    public Person(String name, String surname, Contact contact, PersonType personType) {
+    public Person(String name, String surname, Contact contact) {
         setName(name);
         setSurname(surname);
         setContact(contact);
-        setPersonType(personType);
     }
 
 
@@ -57,7 +53,7 @@ public abstract class Person {
      * @param name
      */
     public void setName(String name) {
-        if(name != null) {
+        if (name != null) {
             this.name = name;
         }
         throw new NullPointerException("Name is required!");
@@ -88,7 +84,7 @@ public abstract class Person {
      * @param surname which is required
      */
     public void setSurname(String surname) {
-        if(surname != null) {
+        if (surname != null) {
             this.surname = surname;
         }
         throw new NullPointerException("Surname is required!");
@@ -106,20 +102,6 @@ public abstract class Person {
      */
     public void setContact(Contact contact) {
         this.contact = contact;
-    }
-
-    /**
-     * @return personType
-     */
-    public PersonType getPersonType() {
-        return personType;
-    }
-
-    /**
-     * @param personType
-     */
-    public void setPersonType(PersonType personType) {
-        this.personType = personType;
     }
 
 
