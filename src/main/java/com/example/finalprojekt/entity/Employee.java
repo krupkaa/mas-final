@@ -16,6 +16,8 @@ public class Employee extends Person {
     //ATRYBUT KLASOWY
     private static double MINIMUM_SALARY = 3000.0;
 
+    private static List<Employee> ALL_EMPLOYEES = new ArrayList<>();
+
     private int calculateWorkExperience(LocalDate dateOfEmployment) {
         return jobSeniority = (int) ChronoUnit.MONTHS.between(dateOfEmployment, LocalDate.now());
     }
@@ -38,6 +40,7 @@ public class Employee extends Person {
         this.jobSeniority = calculateWorkExperience(dateOfEmployment);
         setJobSeniority(jobSeniority);
         this.previousWorkplaceList = previousWorkplaceList;
+        ALL_EMPLOYEES.add(this);
     }
 
 
@@ -55,6 +58,7 @@ public class Employee extends Person {
         this.dateOfEmployment = dateOfEmployment;
         this.jobSeniority = calculateWorkExperience(dateOfEmployment);
         this.previousWorkplaceList = previousWorkplaceList;
+        ALL_EMPLOYEES.add(this);
     }
 
 

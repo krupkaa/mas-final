@@ -17,6 +17,8 @@ public class Client extends Person {
     private Opinion opinion;
     private static Map<Integer, Client> CLIENTSMAP = new HashMap<>();
 
+    private static List<Client> ALL_CLIENTS = new ArrayList<>();
+
 
     /**
      * constructor which is used when client have a second name
@@ -36,6 +38,8 @@ public class Client extends Person {
         setClientId(clientId);
         setCurrentDeposit(currentDeposit);
         drivingLicenseCategoryList.addAll(Arrays.asList(drivingLicenseCategory));
+        ALL_CLIENTS.add(this);
+
     }
 
     /**
@@ -55,6 +59,7 @@ public class Client extends Person {
         setClientId(clientId);
         setCurrentDeposit(currentDeposit);
         drivingLicenseCategoryList.addAll(Arrays.asList(drivingLicenseCategory));
+        ALL_CLIENTS.add(this);
     }
 
 

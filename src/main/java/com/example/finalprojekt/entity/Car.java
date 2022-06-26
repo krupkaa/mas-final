@@ -17,8 +17,19 @@ public class Car {
     private int mileage;
 
 
-    public static List<Car> ALL_CARS_LIST = new ArrayList<>();
+    private static List<Car> ALL_CARS = new ArrayList<>();
 
+
+    /**
+     * construktor with all parameters
+     * @param brand
+     * @param model
+     * @param registrationNumber
+     * @param seats
+     * @param priceRentForDay
+     * @param carStatus
+     * @param mileage
+     */
     public Car(String brand, String model, String registrationNumber, int seats, double priceRentForDay, CarStatus carStatus, int mileage) {
         setBrand(brand);
         setModel(model);
@@ -27,7 +38,7 @@ public class Car {
         setPriceRentForDay(priceRentForDay);
         setCarStatus(carStatus);
         setMileage(mileage);
-
+        ALL_CARS.add(this);
     }
 
     public String getBrand() {
