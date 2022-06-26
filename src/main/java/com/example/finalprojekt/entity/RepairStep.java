@@ -6,6 +6,7 @@ public class RepairStep {
     private String stepDescription;
     private double stepCost;
 
+
     private Repair repair;
 
     //prywatny konstuktor, aby tylko metody z tej klasy mogły tworzyć jej instancje

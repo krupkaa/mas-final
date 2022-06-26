@@ -7,6 +7,7 @@ import java.util.List;
 
 public class Repair {
 
+
     public static List<Repair> ALL_REPAIR = new ArrayList<>();
     private List<RepairStep> repairSteps = new ArrayList<>();
 
@@ -18,7 +19,7 @@ public class Repair {
     private Car whichCar;
 
     /**
-     * contruktor
+     * constructor
      * @param idRepair
      * @param startTime
      * @param endTime

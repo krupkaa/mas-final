@@ -1,9 +1,11 @@
 package com.example.finalprojekt.entity;
 
 import com.example.finalprojekt.enums.CarStatus;
+import com.example.finalprojekt.enums.EngineType;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 public class Car {
@@ -19,6 +21,8 @@ public class Car {
 
     public static List<Car> ALL_CARS = new ArrayList<>();
     private List<Repair> repairsHistory = new ArrayList<>();
+
+    private EnumSet<EngineType> carTypeEnumSet;
 
     public void addRepair(Repair carRepair) {
         if(!repairsHistory.contains(carRepair)) {

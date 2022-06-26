@@ -18,8 +18,39 @@ public class Employee extends Person {
 
     public static List<Employee> ALL_EMPLOYEES = new ArrayList<>();
 
+    private List<Shift> shiftListEmployee = new ArrayList<>();
+    private List<Shift> shiftListEmployeeSubset = new ArrayList<>();
+
+    /**
+     * method to calculate workExperience in company
+     * @param dateOfEmployment
+     * @return jobSeniority
+     */
     private int calculateWorkExperience(LocalDate dateOfEmployment) {
         return jobSeniority = (int) ChronoUnit.MONTHS.between(dateOfEmployment, LocalDate.now());
+    }
+
+    /**
+     * mathod to add Shift for employee
+     * @param employeeShift
+     */
+    //SUBSET
+    public void addShiftForEmployee(Shift employeeShift) {
+        shiftListEmployee.add(employeeShift);
+        employeeShift.addEmployeeFoShift(this);
+    }
+
+    /**
+     * @param employeeShiftSubset
+     */
+    //SUBSET
+    public void addShiftSubset(Shift employeeShiftSubset) {
+        if (shiftListEmployee.contains(employeeShiftSubset)) {
+            shiftListEmployeeSubset.add(employeeShiftSubset);
+            employeeShiftSubset.addShiftForEmployeeSubset(this);
+        } else {
+            throw new IllegalArgumentException("odrzędny argument nie jest w nadrzędnej relacji");
+        }
     }
 
 
