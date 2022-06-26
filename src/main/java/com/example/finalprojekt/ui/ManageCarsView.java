@@ -16,17 +16,13 @@ public class ManageCarsView  extends HorizontalLayout {
         });
 
 
-        Button addCar = new Button("Dodaj samochód");
+        Button addCar = new Button("Dodaj/usuń samochód");
         add(addCar);
         addCar.addClickListener(clickEvent -> {
-            UI.getCurrent().navigate("addCar");
+            UI.getCurrent().navigate("addOrDeleteCar");
         });
 
-        Button deleteCar = new Button("Usuń samochód");
-        add(deleteCar);
-        deleteCar.addClickListener(clickEvent -> {
-           // UI.getCurrent().navigate("");
-        });
+
     }
 
 

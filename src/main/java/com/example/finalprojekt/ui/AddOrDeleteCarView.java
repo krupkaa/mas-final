@@ -6,6 +6,7 @@ import com.example.finalprojekt.helpers.FileOperator;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.IntegerField;
 import com.vaadin.flow.component.textfield.TextField;
@@ -14,8 +15,8 @@ import com.vaadin.flow.data.binder.Binder;
 import com.vaadin.flow.router.Route;
 
 
-@Route("addCar")
-public class AddCarView extends VerticalLayout {
+@Route("addOrDeleteCar")
+public class AddOrDeleteCarView extends VerticalLayout {
 
     TextField brand = new TextField("Marka");
     TextField model = new TextField("Model");
@@ -25,34 +26,49 @@ public class AddCarView extends VerticalLayout {
 
 
     Button addCarButton = new Button("Dodaj samochód");
+    Button deleteCarButton = new Button("Usuń samochód");
 
     Binder<Car> binder = new BeanValidationBinder<>(Car.class);
 
-    Car addedCar;
+    Car car;
     FileOperator fo = new FileOperator();
 
     public void setCar(Car car) {
         binder.setBean(car);
     }
 
-    public AddCarView() {
+    public AddOrDeleteCarView() {
 
         addCarButton.setThemeName("primary");
 
         binder.bindInstanceFields(this);
-        add(brand, model, registrationNumber, priceForDayRent, addCarButton);
-      //  carStatus.setItems(CarStatus.values());
+        add(brand, model, registrationNumber, priceForDayRent);
+
+        add(new HorizontalLayout(addCarButton, deleteCarButton));
+
 
 
         addCarButton.addClickListener(click -> {
-            addedCar = new Car(brand.getValue(), model.getValue(), registrationNumber.getValue(),
+            car = new Car(brand.getValue(), model.getValue(), registrationNumber.getValue(),
                     priceForDayRent.getValue(), CarStatus.AVAILABLE);
-        //    Car.ALL_CARS.add(addedCar);
-            System.out.println(addedCar);
+            System.out.println(car);
             System.out.println(Car.ALL_CARS);
             fo.addCarsToFile(Car.ALL_CARS);
             Notification.show("Samochód został dodany!");
         });
+
+        deleteCarButton.addClickListener(click -> {
+            for (Car c : Car.ALL_CARS) {
+                if (c.getRegistrationNumber().equals(registrationNumber.getValue())) {
+                    c.setCarStatus(CarStatus.WITHDRAWN);
+                }
+
+            }
+
+            System.out.println(Car.ALL_CARS);
+            Notification.show("Samochód został wycofany");
+        });
+
 
     }
 }
