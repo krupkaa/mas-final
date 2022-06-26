@@ -17,7 +17,7 @@ public class Client extends Person {
     private Opinion opinion;
     private static Map<Integer, Client> CLIENTSMAP = new HashMap<>();
 
-    private static List<Client> ALL_CLIENTS = new ArrayList<>();
+    public static List<Client> ALL_CLIENTS = new ArrayList<>();
 
 
     /**

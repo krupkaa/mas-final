@@ -17,7 +17,14 @@ public class Car {
     private int mileage;
 
 
-    private static List<Car> ALL_CARS = new ArrayList<>();
+    public static List<Car> ALL_CARS = new ArrayList<>();
+    private List<Repair> repairsHistory = new ArrayList<>();
+
+    public void addRepair(Repair carRepair) {
+        if(!repairsHistory.contains(carRepair)) {
+            repairsHistory.add(carRepair);
+        }
+    }
 
 
     /**
@@ -41,64 +48,109 @@ public class Car {
         ALL_CARS.add(this);
     }
 
+    /**
+     * @return brand
+     */
     public String getBrand() {
         return brand;
     }
 
+    /**
+     * @param brand
+     */
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
+    /**
+     * @return model
+     */
     public String getModel() {
         return model;
     }
 
+    /**
+     * @param model
+     */
     public void setModel(String model) {
         this.model = model;
     }
 
+    /**
+     * @return registrationNumber
+     */
     public String getRegistrationNumber() {
         return registrationNumber;
     }
 
+    /**
+     * @param registrationNumber
+     */
     public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
 
+    /**
+     * @return seats
+     */
     public int getSeats() {
         return seats;
     }
 
+    /**
+     * @param seats
+     */
     public void setSeats(int seats) {
         this.seats = seats;
     }
 
+    /**
+     * @return priceRentForDay
+     */
     public double getPriceRentForDay() {
         return priceRentForDay;
     }
 
+    /**
+     * @param priceRentForDay
+     */
     public void setPriceRentForDay(double priceRentForDay) {
         this.priceRentForDay = priceRentForDay;
     }
 
+    /**
+     * @return carStatus
+     */
     public CarStatus getCarStatus() {
         return carStatus;
     }
 
+    /**
+     * @param carStatus
+     */
     public void setCarStatus(CarStatus carStatus) {
         this.carStatus = carStatus;
     }
 
+    /**
+     * @return mileage
+     */
     public int getMileage() {
         return mileage;
     }
 
+    /**
+     * @param mileage
+     */
     public void setMileage(int mileage) {
         this.mileage = mileage;
     }
 
 
-
+    /**
+     * override toString
+     * @return String
+     */
     @Override
     public String toString() {
         return
@@ -111,4 +163,6 @@ public class Car {
                 mileage;
 
     }
+
+
 }

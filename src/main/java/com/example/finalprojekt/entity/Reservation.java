@@ -36,10 +36,26 @@ public class Reservation {
         }
     }
 
+    /**
+     * method to calculate total costs for the reservation
+     * @param pricePerDay
+     * @param days
+     * @return totalPrice
+     */
     private double calculateTotalCosts(double pricePerDay, int days) {
         return totalPrice = pricePerDay * days;
     }
 
+    /**
+     * constructor with all parameters
+     * @param id
+     * @param startTime
+     * @param endTime
+     * @param pricePerDay
+     * @param reservationStatus
+     * @param car
+     * @param client
+     */
     public Reservation(long id, LocalDate startTime, LocalDate endTime, double pricePerDay, ReservationStatus reservationStatus, Car car, Client client) {
         this.setId(id);
         this.setStartTime(startTime);
@@ -54,82 +70,142 @@ public class Reservation {
     }
 
 
+    /**
+     * @return id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * @param id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * @return startTime
+     */
     public LocalDate getStartTime() {
         return startTime;
     }
 
+    /**
+     * @param startTime
+     */
     public void setStartTime(LocalDate startTime) {
         this.startTime = startTime;
     }
 
+    /**
+     * @return endTime
+     */
     public LocalDate getEndTime() {
         return endTime;
     }
 
+    /**
+     * @param endTime
+     */
     public void setEndTime(LocalDate endTime) {
         this.endTime = endTime;
     }
 
+    /**
+     * @return days
+     */
     public int getDays() {
         return days;
     }
 
+    /**
+     * @param days
+     */
     public void setDays(int days) {
         this.days = days;
     }
 
+    /**
+     * @return pricePerDay
+     */
     public double getPricePerDay() {
         return pricePerDay;
     }
 
+    /**
+     * @param pricePerDay
+     */
     public void setPricePerDay(double pricePerDay) {
         this.pricePerDay = pricePerDay;
     }
 
+    /**
+     * @return totalPrice
+     */
     public double getTotalPrice() {
         return totalPrice;
     }
 
+    /**
+     * @param totalPrice
+     */
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
 
+    /**
+     * @return reservationStatus
+     */
     public ReservationStatus getReservationStatus() {
         return reservationStatus;
     }
 
+    /**
+     * @param reservationStatus
+     */
     public void setReservationStatus(ReservationStatus reservationStatus) {
         this.reservationStatus = reservationStatus;
     }
 
+    /**
+     * @return car
+     */
     public Car getCar() {
         return car;
     }
 
+    /**
+     * @param car
+     */
     public void setCar(Car car) {
         this.car = car;
     }
 
+    /**
+     * @return client
+     */
     public Client getClient() {
         return client;
     }
 
+    /**
+     * @param client
+     */
     public void setClient(Client client) {
         this.client = client;
     }
 
+    /**
+     * @return ALL_RESERVATIONS
+     */
     public static List<Reservation> getAllReservations() {
         return ALL_RESERVATIONS;
     }
 
+    /**
+     * @param allReservations
+     */
     public static void setAllReservations(List<Reservation> allReservations) {
         ALL_RESERVATIONS = allReservations;
     }

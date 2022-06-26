@@ -16,7 +16,7 @@ public class Employee extends Person {
     //ATRYBUT KLASOWY
     private static double MINIMUM_SALARY = 3000.0;
 
-    private static List<Employee> ALL_EMPLOYEES = new ArrayList<>();
+    public static List<Employee> ALL_EMPLOYEES = new ArrayList<>();
 
     private int calculateWorkExperience(LocalDate dateOfEmployment) {
         return jobSeniority = (int) ChronoUnit.MONTHS.between(dateOfEmployment, LocalDate.now());

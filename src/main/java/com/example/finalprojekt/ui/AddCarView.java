@@ -49,10 +49,10 @@ public class AddCarView extends VerticalLayout {
         addCarButton.addClickListener(click -> {
             addedCar = new Car(brand.getValue(), model.getValue(), registrationNumber.getValue(),
                     seats.getValue(), priceForDayRent.getValue(), carStatus.getValue(), mileage.getValue());
-            Car.ALL_CARS_LIST.add(addedCar);
+            Car.ALL_CARS.add(addedCar);
             System.out.println(addedCar);
-            System.out.println(Car.ALL_CARS_LIST);
-            fo.addCarsToFile(Car.ALL_CARS_LIST);
+            System.out.println(Car.ALL_CARS);
+            fo.addCarsToFile(Car.ALL_CARS);
             Notification.show("Samochód został dodany!");
         });
 
