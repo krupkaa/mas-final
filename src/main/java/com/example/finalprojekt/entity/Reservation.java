@@ -9,7 +9,6 @@ import java.util.List;
 
 public class Reservation {
 
-    private long id;
     private LocalDate startTime;
     private LocalDate endTime;
     private int days;
@@ -20,7 +19,7 @@ public class Reservation {
     private Car car;
     private Client client;
 
-    private static List<Reservation> ALL_RESERVATIONS = new ArrayList<>();
+    public static List<Reservation> ALL_RESERVATIONS = new ArrayList<>();
 
     /**
      * mathod to calculate how many days will are
@@ -48,7 +47,6 @@ public class Reservation {
 
     /**
      * constructor with all parameters
-     * @param id
      * @param startTime
      * @param endTime
      * @param pricePerDay
@@ -56,8 +54,7 @@ public class Reservation {
      * @param car
      * @param client
      */
-    public Reservation(long id, LocalDate startTime, LocalDate endTime, double pricePerDay, ReservationStatus reservationStatus, Car car, Client client) {
-        this.setId(id);
+    public Reservation(LocalDate startTime, LocalDate endTime, double pricePerDay, ReservationStatus reservationStatus, Car car, Client client) {
         this.setStartTime(startTime);
         this.setEndTime(endTime);
         this.days = calculateNumberOfDays(startTime, endTime);
@@ -68,21 +65,14 @@ public class Reservation {
         this.setClient(client);
         Reservation.ALL_RESERVATIONS.add(this);
     }
-
-
-    /**
-     * @return id
-     */
-    public long getId() {
-        return id;
+    public Reservation(Car car, Client client) {
+        setReservationStatus(ReservationStatus.WAITING_FOR_REALISATION);
+        this.setCar(car);
+        this.setClient(client);
+        Reservation.ALL_RESERVATIONS.add(this);
     }
 
-    /**
-     * @param id
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
+
 
     /**
      * @return startTime
@@ -208,5 +198,19 @@ public class Reservation {
      */
     public static void setAllReservations(List<Reservation> allReservations) {
         ALL_RESERVATIONS = allReservations;
+    }
+
+    @Override
+    public String toString() {
+        return "Reservation{" +
+                "startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", days=" + days +
+                ", pricePerDay=" + pricePerDay +
+                ", totalPrice=" + totalPrice +
+                ", reservationStatus=" + reservationStatus +
+                ", car=" + car +
+                ", client=" + client +
+                '}';
     }
 }

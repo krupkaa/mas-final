@@ -20,6 +20,28 @@ public class FileOperator {
             for (Car c:addedCars) {
                 bw.write(c.toString());
                 bw.newLine();
+
+            }
+
+            bw.close();
+            fw.close();
+            System.out.println("Dane zostaly zapisane do pliku");
+        } catch (IOException e) {
+            System.err.println("Nie udalo zapisac sie danych do pliku");
+        }
+    }
+
+    public void addCarsToFileAfterChange(List<Car> addedCars) {
+        try {
+            FileWriter fw = new FileWriter("C:\\Studia\\VI SEMESTR\\MAS\\final-projekt\\src\\main\\resources\\cars.csv");
+            BufferedWriter bw = new BufferedWriter(fw);
+
+            bw.write("Marka;Model;Rejestracja;Ilość miejsc;Cena za dzień;Status auta;Przebieg");
+
+            for (Car c:addedCars) {
+                bw.write(c.toString());
+                bw.newLine();
+
             }
 
             bw.close();

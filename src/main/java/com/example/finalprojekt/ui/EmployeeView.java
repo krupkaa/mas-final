@@ -13,17 +13,23 @@ public class EmployeeView extends HorizontalLayout {
 
         Button showCars = new Button("Wyświetl samochody");
         add(showCars);
-        showCars.addClickListener(clickEvent -> {
+        showCars.addClickListener(click -> {
             UI.getCurrent().navigate("showCars");
         });
 
         Button rejectCar = new Button("Zarejestruj samochód");
         add(rejectCar);
-        rejectCar.addClickListener(clickEvent -> {
+        rejectCar.addClickListener(click -> {
             UI.getCurrent().navigate("addCar");
         });
         add(new Button("Dodaj klienta"));
         add(new Button("Zmień status auta"));
+
+        Button changeStatus = new Button("Zmień status auta");
+        add(changeStatus);
+        changeStatus.addClickListener(click -> {
+            UI.getCurrent().navigate("changeStatus");
+        });
 
     }
 }

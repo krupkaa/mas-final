@@ -1,7 +1,5 @@
 package com.example.finalprojekt.entity;
 
-import com.example.finalprojekt.enums.PersonType;
-
 import java.util.*;
 
 public class Client extends Person {
@@ -26,15 +24,15 @@ public class Client extends Person {
      * @param secondName
      * @param surname
      * @param contact
-     * @param personType
+
      * @param clientId
      * @param currentDeposit
      * @param drivingLicenseCategory
      * @throws Exception
      */
     public Client(String name, String secondName, String surname, Contact contact,
-                  PersonType personType, int clientId, double currentDeposit, String... drivingLicenseCategory) throws Exception {
-        super(name, secondName, surname, contact, personType);
+                  int clientId, double currentDeposit, String... drivingLicenseCategory) throws Exception {
+        super(name, secondName, surname, contact);
         setClientId(clientId);
         setCurrentDeposit(currentDeposit);
         drivingLicenseCategoryList.addAll(Arrays.asList(drivingLicenseCategory));
@@ -47,15 +45,15 @@ public class Client extends Person {
      * @param name
      * @param surname
      * @param contact
-     * @param personType
+
      * @param clientId
      * @param currentDeposit
      * @param drivingLicenseCategory
      * @throws Exception
      */
     public Client(String name, String surname, Contact contact,
-                  PersonType personType, int clientId, double currentDeposit, String... drivingLicenseCategory) throws Exception {
-        super(name, surname, contact, personType);
+                  int clientId, double currentDeposit, String... drivingLicenseCategory) throws Exception {
+        super(name, surname, contact);
         setClientId(clientId);
         setCurrentDeposit(currentDeposit);
         drivingLicenseCategoryList.addAll(Arrays.asList(drivingLicenseCategory));
@@ -197,5 +195,18 @@ public class Client extends Person {
         this.reservationList = reservationList;
     }
 
+    public Client(String name, String secondName, String surname, Contact contact, int clientId) {
+        super(name, secondName, surname, contact);
+        this.clientId = clientId;
+    }
 
+    @Override
+    public String toString() {
+        return clientId + ";" +
+                currentDeposit + ";" +
+                drivingLicenseCategoryList + ";" +
+                reservationList + ";" +
+                issuedOpinionsList + ";" +
+                opinion;
+    }
 }

@@ -20,10 +20,8 @@ public class AddCarView extends VerticalLayout {
     TextField brand = new TextField("Marka");
     TextField model = new TextField("Model");
     TextField registrationNumber = new TextField("Numer Rejestracyjny");
-    IntegerField seats = new IntegerField("Ilość miejsc");
     IntegerField priceForDayRent = new IntegerField("Cena za dzień wynajmu");
-    ComboBox<CarStatus> carStatus = new ComboBox<>("Status");
-    IntegerField mileage = new IntegerField("Przebieg");
+
 
 
     Button addCarButton = new Button("Dodaj samochód");
@@ -42,14 +40,14 @@ public class AddCarView extends VerticalLayout {
         addCarButton.setThemeName("primary");
 
         binder.bindInstanceFields(this);
-        add(brand, model, registrationNumber, seats, priceForDayRent, carStatus, mileage, addCarButton);
-        carStatus.setItems(CarStatus.values());
+        add(brand, model, registrationNumber, priceForDayRent, addCarButton);
+      //  carStatus.setItems(CarStatus.values());
 
 
         addCarButton.addClickListener(click -> {
             addedCar = new Car(brand.getValue(), model.getValue(), registrationNumber.getValue(),
-                    seats.getValue(), priceForDayRent.getValue(), carStatus.getValue(), mileage.getValue());
-            Car.ALL_CARS.add(addedCar);
+                    priceForDayRent.getValue(), CarStatus.AVAILABLE);
+        //    Car.ALL_CARS.add(addedCar);
             System.out.println(addedCar);
             System.out.println(Car.ALL_CARS);
             fo.addCarsToFile(Car.ALL_CARS);

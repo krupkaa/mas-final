@@ -37,19 +37,15 @@ public class Car {
      * @param brand
      * @param model
      * @param registrationNumber
-     * @param seats
      * @param priceRentForDay
      * @param carStatus
-     * @param mileage
      */
-    public Car(String brand, String model, String registrationNumber, int seats, double priceRentForDay, CarStatus carStatus, int mileage) {
+    public Car(String brand, String model, String registrationNumber, double priceRentForDay, CarStatus carStatus) {
         setBrand(brand);
         setModel(model);
         setRegistrationNumber(registrationNumber);
-        setSeats(seats);
         setPriceRentForDay(priceRentForDay);
         setCarStatus(carStatus);
-        setMileage(mileage);
         ALL_CARS.add(this);
     }
 

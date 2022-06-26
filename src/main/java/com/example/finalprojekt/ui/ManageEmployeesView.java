@@ -23,10 +23,6 @@ public class ManageEmployeesView extends HorizontalLayout {
             UI.getCurrent().navigate("addEmployee");
         });
 
-        Button deleteEmployee = new Button("Usuń pracownika");
-        add(deleteEmployee);
-        deleteEmployee.addClickListener(clickEvent -> {
-            // UI.getCurrent().navigate("");
-        });
+
     }
 }

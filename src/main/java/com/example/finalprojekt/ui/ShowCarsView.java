@@ -1,6 +1,7 @@
 package com.example.finalprojekt.ui;
 
 
+import com.example.finalprojekt.entity.Car;
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -44,6 +45,7 @@ public class ShowCarsView extends VerticalLayout {
             }
 
             grid.setItems(entries.subList(1, entries.size()));
+
 
 
         } catch (IOException e) {

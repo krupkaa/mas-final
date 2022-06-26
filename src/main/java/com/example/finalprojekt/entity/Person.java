@@ -27,7 +27,6 @@ public abstract class Person {
 
 
     //ATRYBUT OPCJONALNY
-
     /**
      * constructor skip attribute second name which is optional
      *
@@ -56,7 +55,7 @@ public abstract class Person {
         if (name != null) {
             this.name = name;
         }
-        throw new NullPointerException("Name is required!");
+
     }
 
     /**
@@ -87,7 +86,6 @@ public abstract class Person {
         if (surname != null) {
             this.surname = surname;
         }
-        throw new NullPointerException("Surname is required!");
     }
 
     /**
