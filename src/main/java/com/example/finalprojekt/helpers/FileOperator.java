@@ -35,7 +35,6 @@ public class FileOperator {
         try {
             FileWriter fw = new FileWriter("C:\\Studia\\VI SEMESTR\\MAS\\final-projekt\\src\\main\\resources\\cars.csv");
             BufferedWriter bw = new BufferedWriter(fw);
-
             bw.write("Marka;Model;Rejestracja;Ilość miejsc;Cena za dzień;Status auta;Przebieg");
 
             for (Car c:addedCars) {

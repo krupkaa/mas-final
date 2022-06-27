@@ -1,6 +1,5 @@
 package com.example.finalprojekt.ui;
 
-
 import com.opencsv.CSVParser;
 import com.opencsv.CSVParserBuilder;
 import com.opencsv.CSVReader;
@@ -10,17 +9,19 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.List;
 
-@Route("showCars")
-public class ShowCarsView extends VerticalLayout {
+@Route("showEmployees")
+public class ShowEmployeesView extends VerticalLayout {
 
     Grid<String[]> grid = new Grid<>();
 
-    public ShowCarsView() {
-       Button buttonReadFile = new Button("Wyświetl wszystkie samochody",  e -> readFromClasspath("cars.csv"));
-       add(buttonReadFile, grid);
+    public ShowEmployeesView() {
+        Button buttonReadFile = new Button("Wyświetl wszystkich pracowników", e -> readFromClasspath("employees.csv"));
+        add(buttonReadFile, grid);
     }
 
     public void readFromClasspath(String fileName) {
@@ -52,9 +53,4 @@ public class ShowCarsView extends VerticalLayout {
         }
 
     }
-
-
 }
-
-
-
