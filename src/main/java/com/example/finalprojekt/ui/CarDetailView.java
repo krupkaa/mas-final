@@ -13,10 +13,7 @@ import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
-
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Route("carDetail")
@@ -42,10 +39,12 @@ public class CarDetailView extends VerticalLayout {
 
         Button rentButton = new Button("Wypożycz auto");
         add(rentButton);
+        System.out.println(Car.ALL_CARS);
         Client.ALL_CLIENTS.add(new Client("Dominika", "Krupa", new Contact("123", "1234"), 1, 10, "B"));
         rentButton.addClickListener(click -> {
             for (Car c: Car.ALL_CARS) {
                 if(c.getRegistrationNumber().equals(registrationNumber.getValue())) {
+                    System.out.println("if");
                     c.setCarStatus(CarStatus.RESERVED);
                     car = c;
                     for (Client cl: Client.ALL_CLIENTS) {
@@ -58,34 +57,39 @@ public class CarDetailView extends VerticalLayout {
                 }
 
             }
-//            System.out.println(Reservation.ALL_RESERVATIONS);
+            System.out.println(Car.ALL_CARS);
+            System.out.println(Reservation.ALL_RESERVATIONS);
             Notification.show("Samochód został wypożyczony!");
         });
 
         Button giveBackButton = new Button("Oddaj auto");
         add(giveBackButton);
+        System.out.println(Car.ALL_CARS);
         giveBackButton.addClickListener(click -> {
             for (Car c: Car.ALL_CARS) {
                 if(c.getRegistrationNumber().equals(registrationNumber.getValue())) {
-                    c.setCarStatus(CarStatus.AVAILABLE);
-                    car = c;
-                    for (Client cl: Client.ALL_CLIENTS) {
-                        if(cl.getName().equals(name.getValue()) && cl.getSurname().equals(surname.getValue())) {
-                            for (Reservation r: Reservation.ALL_RESERVATIONS ) {
-                                if(r.getCar().equals(c) && r.getClient().equals(cl)) {
-                                    r.setReservationStatus(ReservationStatus.EXECUTED);
-                                    r.setEndTime(LocalDate.now());
-                                }
+                    if(c.getCarStatus() == CarStatus.RESERVED) {
+                        c.setCarStatus(CarStatus.AVAILABLE);
+                        car = c;
+                        for (Client cl : Client.ALL_CLIENTS) {
+                            if (cl.getName().equals(name.getValue()) && cl.getSurname().equals(surname.getValue())) {
+                                for (Reservation r : Reservation.ALL_RESERVATIONS) {
+                                    if (r.getCar().equals(c) && r.getClient().equals(cl)) {
+                                        r.setReservationStatus(ReservationStatus.EXECUTED);
+                                        r.setEndTime(LocalDate.now());
+                                    }
 
+                                }
                             }
                         }
+                        Notification.show("Samochód został oddany!");
                     }
-
                 }
 
             }
 //            System.out.println(Reservation.ALL_RESERVATIONS);
-            Notification.show("Samochód został oddany!");
+            System.out.println(Car.ALL_CARS);
+
         });
     }
 

@@ -24,11 +24,11 @@ public class ClientView extends HorizontalLayout {
             UI.getCurrent().navigate("carDetail");
         });
 
-        Button addOpinion = new Button("Wystaw opinie");
-        add(addOpinion);
-        addOpinion.addClickListener(clickEvent -> {
-            UI.getCurrent().navigate("opinion");
-        });
+//        Button addOpinion = new Button("Wystaw opinie");
+//        add(addOpinion);
+//        addOpinion.addClickListener(clickEvent -> {
+//            UI.getCurrent().navigate("opinion");
+//        });
 
 
     }

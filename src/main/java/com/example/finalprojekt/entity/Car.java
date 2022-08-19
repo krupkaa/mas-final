@@ -3,7 +3,6 @@ package com.example.finalprojekt.entity;
 import com.example.finalprojekt.enums.CarStatus;
 import com.example.finalprojekt.enums.EngineType;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -26,7 +25,7 @@ public class Car {
 
     //ORDERED
     public void addRepair(Repair carRepair) {
-        if(!repairsHistory.contains(carRepair)) {
+        if (!repairsHistory.contains(carRepair)) {
             repairsHistory.add(carRepair);
         }
     }
@@ -34,6 +33,7 @@ public class Car {
 
     /**
      * construktor with all parameters
+     *
      * @param brand
      * @param model
      * @param registrationNumber
@@ -87,9 +87,12 @@ public class Car {
     /**
      * @param registrationNumber
      */
+
     public void setRegistrationNumber(String registrationNumber) {
         this.registrationNumber = registrationNumber;
+
     }
+
 
     /**
      * @return seats
@@ -150,18 +153,19 @@ public class Car {
 
     /**
      * override toString
+     *
      * @return String
      */
     @Override
     public String toString() {
         return
                 brand + ';' +
-                model + ';' +
-                registrationNumber + ';' +
-                seats + ';' +
-                priceRentForDay + ';' +
-                carStatus + ';' +
-                mileage;
+                        model + ';' +
+                        registrationNumber + ';' +
+                        seats + ';' +
+                        priceRentForDay + ';' +
+                        carStatus + ';' +
+                        mileage;
 
     }
 

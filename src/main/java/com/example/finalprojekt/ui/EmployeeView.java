@@ -20,10 +20,9 @@ public class EmployeeView extends HorizontalLayout {
         Button rejectCar = new Button("Zarejestruj samochód");
         add(rejectCar);
         rejectCar.addClickListener(click -> {
-            UI.getCurrent().navigate("addCar");
+            UI.getCurrent().navigate("addOrDeleteCar");
         });
-        add(new Button("Dodaj klienta"));
-        add(new Button("Zmień status auta"));
+
 
         Button changeStatus = new Button("Zmień status auta");
         add(changeStatus);
